@@ -52,6 +52,8 @@ public class UserModelFactory {
 
     public UserModel create(LegacyUser legacyUser, RealmModel realm) {
         LOG.infof("Creating user model for: %s", legacyUser.getUsername());
+        LOG.infof("Creating user model for: %s", legacyUser.toString());
+        LOG.infof("real attributes: %s", realm.getAttributes());
 
         UserModel userModel;
         if (isEmpty(legacyUser.getId())) {
@@ -65,6 +67,8 @@ public class UserModelFactory {
                     false
             );
         }
+
+        LOG.infof("UserMovel: %s",userModel.toString());
 
         validateUsernamesEqual(legacyUser, userModel);
 
